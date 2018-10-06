@@ -1,0 +1,240 @@
+@import 'mixins/background'
+
+body
+  @include background
+
+/* Main displey of quiz page */
+.quizComponent
+  // question's text
+  .quizTitle
+    width: 90%
+    margin: 0 auto
+    margin-top: 30px
+    background-color: #E5FF7E
+    padding: 15px
+    border: 2px solid #898A46
+    border-radius: 16px
+    text-align: center
+    color: black
+    font-size: 60px
+
+  // choices of question
+  .choiceDisplayList
+    .choiceDisplay
+      position: relative
+      width: 100%
+      height: 100%
+      //width: 500px
+      //height: 500px
+      margin: 7px 10px
+      background-color: #E4FFE6
+      // border of question's choice
+      border: solid
+      border-width: 2px
+      border-color: #03C100
+      border-radius: 20px
+
+      // choice marker
+      h1
+        position: absolute
+        padding-top: 13px
+        margin: 10px
+        width: 70px
+        height: 70px
+        text-align: center
+        color: white
+        border-radius: 50%
+        border: 1px solid white
+
+      // choice text
+      p
+        font-size: 45px
+        margin: 20px auto
+        text-align: center
+
+      // choice img
+      img
+        display: block
+        margin: 0 auto
+
+      // vote number
+      .voteNumber
+        position: absolute
+        padding: 10px
+        text-align: right
+        font-size: 30px
+        width: 100px
+        bottom: 5px
+        right: 5px
+        background-color: #FFB4F6
+        border: 2px solid white
+        border-radius: 10px
+
+/* Quiz title */
+.quizTitleComponent
+  height: 100%
+  width: 100%
+  top: 0
+  left: 0
+
+  h1
+    text-align: center
+    right: 0
+    left: 0
+    margin: auto
+    position: absolute
+    top: 35%
+
+
+.displayitem_fst
+  width: 50%
+  margin: 0 auto
+  margin-top: 30px
+  background-color: #E8FF00
+  padding: 15px
+  border: 2px solid #898A46
+  border-radius: 16px
+  text-align: center
+  color: black
+  font-size: 50px
+  opacity: 0
+  list-style: none
+  vertical-align: middle
+
+.displayitem_snd
+  width: 50%
+  margin: 0 auto
+  margin-top: 30px
+  background-color: #CFCFCF
+  padding: 15px
+  border: 2px solid #898A46
+  border-radius: 16px
+  text-align: center
+  color: black
+  font-size: 40px
+  opacity: 0
+  list-style: none
+  vertical-align: middle
+
+.displayitem_thd
+
+  width: 50%
+  margin: 0 auto
+  margin-top: 30px
+  background-color: #BFAA4A
+  padding: 15px
+  border: 2px solid #898A46
+  border-radius: 16px
+  text-align: center
+  color: black
+  font-size: 30px
+  opacity: 0
+  list-style: none
+
+.displayitem
+  width: 50%
+  margin: 0 auto
+  margin-top: 10px
+  background-color: #BFAA4A
+  padding: 15px
+  border: 2px solid #898A46
+  border-radius: 16px
+  text-align: center
+  color: black
+  font-size: 25px
+  opacity: 0
+  list-style: none
+
+//.container_title
+//  opacity: 0
+//.container
+//  opacity: 0
+  
+=animationValue($name, $duration, $function, $delay, $count, $state)
+  -webkit-animation: $name ($duration + s) $function ($delay + s) $count $state
+  animation: $name ($duration + s) $function ($delay + s) $count $state
+
+@for $cnt from 1 through 7
+  .displayitem:nth-child(#{8-$cnt})
+    +animationValue(example, 0.5, ease, $cnt * 0.5 , 1, forwards)
+ 
+//.displayitem:nth-child(7)
+//  +animationValue(example, 0.5, ease, 1 * 0.5, 1, forwards)
+//.displayitem:nth-child(6)
+//  +animationValue(example, 0.5, ease, 2 * 0.5, 1, forwards)
+//.displayitem:nth-child(5)
+//  +animationValue(example, 0.5, ease, 3 * 0.5, 1, forwards)
+//.displayitem:nth-child(4)
+//  +animationValue(example, 0.5, ease, 4 * 0.5, 1, forwards)
+//.displayitem:nth-child(3)
+//  +animationValue(example, 0.5, ease, 5 * 0.5, 1, forwards)
+//.displayitem:nth-child(2)
+//  +animationValue(example, 0.5, ease, 6 * 0.5, 1, forwards)
+//.displayitem:nth-child(1)
+//  +animationValue(example, 0.5, ease, 7 * 0.5, 1, forwards)
+.displayitem_thd:nth-child(1)
+  +animationValue(example, 0.5, ease, 8 * 0.5, 1, forwards)
+.displayitem_snd:nth-child(1)
+  +animationValue(example, 0.5, ease, 9* 0.5, 1, forwards)
+.displayitem_fst:nth-child(1)
+  +animationValue(example_fst, 1.0, ease, 15 * 0.5, 1, forwards)
+
+//.container
+//  +animationValue(Title, 2.0, ease, 0.5, 1, forwards)
+//  .container_title
+//    +animationValue(Title, 2.0, ease, 0.5, 1, forwards)
+
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+
+  @keyframes #{$name}
+    @content
+
++keyframes(example)
+  0%
+    opacity: 0  
+    transform: rotateX(0deg)    
+
+  100%
+    opacity: 1
+    transform: rotateX(360deg) 
+
++keyframes(example)
+  0%
+    opacity: 0  
+    transform: rotateX(0deg)    
+
+  100%
+    opacity: 1
+    transform: rotateX(360deg)    
+
++keyframes(example_fst)
+  0%
+    opacity: 0  
+    transform: rotateX(0deg)  
+    width: 50%
+    font-size: 50px  
+
+  75%
+    opacity: 1
+    transform: rotateX(360deg)
+    width: 50%
+    font-size: 50px
+
+  100%
+    opacity: 1
+    transform: rotateX(360deg)
+    width: 70%
+    font-size: 60px
+
++keyframes(Title)
+  0%
+    opacity: 0  
+    height: 0%
+    width: 0%   
+
+  100%
+    opacity: 1
+    height: 100%
+    width: 100%  

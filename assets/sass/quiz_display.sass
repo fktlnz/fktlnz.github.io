@@ -1,0 +1,38 @@
+// style sheet for quiz display page (user page)
+.displayitem
+  float: left
+  margin-right: 10px
+  padding: 10px
+  width: 60px
+  height: 60px
+  background: #EF5F5D
+  color: #fff
+  list-style: none
+  text-align: center
+  line-height: 60px
+  opacity: 0
+
+=animationValue($name, $duration, $function, $delay, $count, $state)
+  -webkit-animation: $name ($duration + s) $function ($delay + s) $count $state
+  animation: $name ($duration + s) $function ($delay + s) $count $state
+
+@for $cnt from 1 through 6
+  .displayitem:nth-child(#{$cnt})
+    +animationValue(example, 0.5, ease, $cnt * 0.5, 1, forwards)
+
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+
+  @keyframes #{$name}
+    @content
+
++keyframes(example)
+  100%
+    opacity: 1
+   
+
+  
+
+
+
