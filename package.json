@@ -5,8 +5,12 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha test/**/*-test.js"
+    "test": "mocha test/**/*-test.js",
+    "predelpoy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "react-script build"
   },
+  "homepage": "https://fktlnz.github.io",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sota1235/Party.git"
@@ -19,7 +23,6 @@
   "bugs": {
     "url": "https://github.com/sota1235/All-Star-Thanksgiving/issues"
   },
-  "homepage": "https://github.com/sota1235/All-Star-Thanksgiving#readme",
   "dependencies": {
     "animate.css": "^3.4.0",
     "basic-auth-connect": "^1.0.0",
